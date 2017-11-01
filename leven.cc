@@ -1,7 +1,6 @@
 
 #include <sstream>
 #include <vector>
-#include <string.h>
 
 namespace std
 {
@@ -24,22 +23,20 @@ const char* ToCString(const String::Utf8Value& value) {
 }
 size_t levenshtein_distance(const char *ac, size_t al,const char *bc, size_t bl) {
 
-    if (strcmp(ac,bc) == 0) {
-        return 0;
-    }
-
     char *a = (char*)ac;
     char *b = (char*)bc;
     char* swap;
     swap = a;
-    
+
+    int aLen = int(al);
+	int bLen = int(bl);
+
     if (al > bl) {
 		a = b;
-		b = swap;
+        b = swap;
+        aLen = int(bl);
+        bLen = int(al);
 	}
-
-	int aLen = int(al);
-	int bLen = int(bl);
 
 	if (aLen == 0) {
 		return bLen;

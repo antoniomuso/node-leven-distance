@@ -5,5 +5,5 @@ module.exports = (a, b) => {
     if (a === b) {
         return 0
     }
-    return leven (a,b)
+    return leven(a,b)
 }
