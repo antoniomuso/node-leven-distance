@@ -1,4 +1,4 @@
-# node_leven_distance
+# node-leven-distance
 > NodeJs levenshtein distance algorithm.
 
 ## How to install
