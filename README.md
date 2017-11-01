@@ -1,4 +1,4 @@
-# node-leven-distance
+# node-leven-distance [![Build Status](https://travis-ci.org/antoniomuso/node-leven-distance.svg?branch=master)](https://travis-ci.org/antoniomuso/node-leven-distance)
 > NodeJs levenshtein distance algorithm.
 
 ## How to install
