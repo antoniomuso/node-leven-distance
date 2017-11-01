@@ -11,5 +11,8 @@
     "test": "node test.js"
   },
   "author": "antoniomuso",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.7.0"
+  }
 }

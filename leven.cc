@@ -1,6 +1,7 @@
 
 #include <sstream>
 #include <vector>
+#include <nan.h>
 
 namespace std
 {
@@ -17,8 +18,9 @@ using v8::Object;
 using v8::String;
 using v8::Value;
 using v8::Number;
+using namespace v8;
 
-const char* ToCString(const String::Utf8Value& value) {
+const char* ToCString(const Nan::Utf8String& value) {
     return *value ? *value : "<string conversion failed>";
 }
 size_t levenshtein_distance(const char *ac, size_t al,const char *bc, size_t bl) {
@@ -116,15 +118,15 @@ void Method(const FunctionCallbackInfo<Value>& args) {
         return;
       }
       
-      auto str_v = args[0]->ToString();
-      auto str_v1 = args[1]->ToString();
-      String::Utf8Value str(str_v);
-      const char* str1 = ToCString(str);
-      String::Utf8Value str_2(str_v1);
-      const char* str2 = ToCString(str_2);
+      Nan::Utf8String str_v(args[0]);
+      Nan::Utf8String str_v1(args[1]);
+
+      const char* str1 = ToCString(str_v);
+      const char* str2 = ToCString(str_v1);
       
-      double l1 = str_v->Length();
-      double l2 =  str_v1->Length();
+      double l1 = str_v.length();
+      double l2 =  str_v1.length();
+      
       auto result = levenshtein_distance(str1,l1,str2,l2);
       Local<Number> num = Number::New(isolate, result);
       args.GetReturnValue().Set(num);
