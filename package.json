@@ -13,6 +13,6 @@
   "author": "antoniomuso",
   "license": "ISC",
   "dependencies": {
-    "nan": "^2.7.0"
+    "nan": "^2.15.0"
   }
 }
